@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { globalConfig } from "@/data/globalConfig";
 import Image from "next/image";
 
 export default function blogs() {
@@ -127,8 +128,8 @@ export default function blogs() {
                                         <td>
                                             <Image
                                                 className="lazyload img-blog"
-                                                data-src={blog.src}
-                                                src={blog.src}
+                                                data-src={globalConfig.domain + blog.src}
+                                                src={globalConfig.domain + blog.src}
                                                 alt={blog.title}
                                                 width={78}
                                                 height={42}

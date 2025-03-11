@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
+import { globalConfig } from "@/data/globalConfig";
 import alertify from 'alertifyjs';
 
 export default function EditCooporate({ id }) {
@@ -85,7 +86,7 @@ export default function EditCooporate({ id }) {
         const data = await response.json();
 
         setName(data.name);
-        setSrc(data.src);
+        setSrc(globalConfig.domain + data.src);
         setType(types.find(x => x === data.type));
     }, []);
 
@@ -95,7 +96,7 @@ export default function EditCooporate({ id }) {
 
     const initializeData = (src, name, type) => {
         setFile(null);
-        setSrc(src)
+        setSrc(globalConfig.domain + src)
         setName(name);
         setType(type);
     }

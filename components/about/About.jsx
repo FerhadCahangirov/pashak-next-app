@@ -7,9 +7,8 @@ export default function About() {
                 <div className="container">
                     <div className="tf-grid-layout md-col-2 tf-img-with-text style-4">
                         <div className="tf-image-wrap">
-                            <Image
+                            <img
                                 className="lazyload w-100"
-                                data-src="/images/collections/about1.jpg"
                                 alt="collection-img"
                                 src="/images/collections/about1.jpg"
                                 width={600}
@@ -18,7 +17,7 @@ export default function About() {
                         </div>
                         <div className="tf-content-wrap px-0 d-flex justify-content-center w-100">
                             <div>
-                                <div className="heading">Established - 1996</div>
+                                <div className="heading">Established - 1996</div> 
                                 <div className="text">
                                     The “Paşa-K” company was established as a legal entity on February 8, 1996, <br className="d-xl-block d-none" />
                                     and was officially registered with the Ministry of Justice. For 20 years, <br className="d-xl-block d-none" />
@@ -55,7 +54,7 @@ export default function About() {
                         <div className="grid-img-group">
                             <div className="tf-image-wrap box-img item-1">
                                 <div className="img-style">
-                                    <Image
+                                    <img
                                         className="lazyload"
                                         src="/images/collections/about2.crop.jpeg"
                                         data-=""
@@ -67,7 +66,7 @@ export default function About() {
                             </div>
                             <div className="tf-image-wrap box-img item-2">
                                 <div className="img-style">
-                                    <Image
+                                    <img
                                         className="lazyload"
                                         src="/images/collections/about3.jpg"
                                         data-=""

@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
+import { globalConfig } from "@/data/globalConfig";
 import alertify from 'alertifyjs';
 
 export default function EditCategory({ id }) {
@@ -78,7 +79,7 @@ export default function EditCategory({ id }) {
         const data = await response.json();
 
         setName(data.category.name);
-        setSrc(data.category.src);
+        setSrc(globalConfig.domain + data.category.src);
     }
 
     useEffect(() => {

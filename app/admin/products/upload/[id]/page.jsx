@@ -1,9 +1,6 @@
 import DashboardNav from "@/components/admin/DashboardNav";
-import HeaderV2 from "@/components/headers/HeaderV2";
 import HeaderV3 from "@/components/headers/HeaderV3";
 import Footer from "@/components/home/Footer";
-import MobileMenu from "@/components/modals/MobileMenu";
-import SearchModal from "@/components/modals/SearchModal";
 import React from "react";
 import ProductUploads from "@/components/admin/ProductUploads";
 

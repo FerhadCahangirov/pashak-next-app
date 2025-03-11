@@ -1,6 +1,8 @@
+"use client"
+
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+
 export default function About() {
     return (
         <section className="flat-spacing-24">
@@ -10,37 +12,34 @@ export default function About() {
                         <div className="grid-img-group">
                             <div className="box-img item-1 hover-img tf-image-wrap">
                                 <div className="img-style">
-                                    <Image
+                                    <img
                                         className="lazyload"
-                                        data-src="/images/collections/about1.jpg"
                                         alt="img-slider"
                                         src="/images/collections/about1.jpg"
-                                        width={272}
-                                        height={325}
+                                        width="272"
+                                        height="325"
                                     />
                                 </div>
                             </div>
                             <div className="box-img item-2 hover-img tf-image-wrap">
                                 <div className="img-style">
-                                    <Image
+                                    <img
                                         className="lazyload"
-                                        data-src="/images/collections/bc1.jpg"
                                         alt="img-slider"
                                         src="/images/collections/bc1.jpg"
-                                        width={400}
-                                        height={539}
+                                        width="400"
+                                        height="539"
                                     />
                                 </div>
                             </div>
                             <div className="box-img item-3 hover-img tf-image-wrap">
                                 <div className="img-style">
-                                    <Image
+                                    <img
                                         className="lazyload"
-                                        data-src="/images/collections/about3.jpg"
                                         alt="img-slider"
                                         src="/images/collections/about3.jpg"
-                                        width={217}
-                                        height={219}
+                                        width="217"
+                                        height="219"
                                     />
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 "use client";
+import { globalConfig } from "@/data/globalConfig";
 import Drift from "drift-zoom";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Gallery, Item } from "react-photoswipe-gallery";
 import { Navigation, Thumbs } from "swiper/modules";
@@ -92,11 +92,10 @@ export default function ImageSlider({
                 {images.map((slide, index) => (
                     <SwiperSlide key={index} className="stagger-item">
                         <div className="item" style={{background: "#e8e8e8"}}>
-                            <Image
+                            <img
                                 className="lazyload"
-                                data-src={slide.src}
                                 alt={""}
-                                src={slide.src} // Optional fallback for non-lazy loading
+                                src={globalConfig.domain + slide.src}
                                 width={1100}
                                 height={700}
                             />
@@ -139,15 +138,14 @@ export default function ImageSlider({
                                         onClick={open}
                                         style={{background: "#e8e8e8"}}
                                     >
-                                        <Image
+                                        <img
                                             className="tf-image-zoom lazyload"
                                             data-zoom={slide.src}
-                                            data-src={slide.src}
                                             ref={ref}
                                             alt="image"
                                             width={1100}
                                             height={700}
-                                            src={slide.src}
+                                            src={globalConfig.domain + slide.src}
                                         />
                                     </a>
                                 )}

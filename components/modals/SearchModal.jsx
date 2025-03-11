@@ -1,7 +1,7 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
 import Link from "next/link";
+import { globalConfig } from "@/data/globalConfig";
 // import { tfLoopItems } from "@/data/products";
 
 export default function SearchModal() {
@@ -111,9 +111,9 @@ export default function SearchModal() {
                                                 <div className="tf-loop-item" key={index}>
                                                     <div className="image">
                                                         <Link href={`/product-detail/${product.id}`}>
-                                                            <Image
+                                                            <img
                                                                 alt={product.name}
-                                                                src={product.images[0].src}
+                                                                src={globalConfig.domain + product.images[0].src}
                                                                 width={720}
                                                                 height={1005}
                                                             />

@@ -4,6 +4,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { Pagination } from "swiper/modules";
+import { globalConfig } from "@/data/globalConfig";
 
 export default function Brands({cooporates}) {
     return (
@@ -37,12 +38,11 @@ export default function Brands({cooporates}) {
                         {cooporates.map((cooporate, index) => (
                             <SwiperSlide key={index}>
                                 <div className="brand-item-v2 hover-opacity">
-                                    <Image
+                                    <img
                                         className="lazyload"
                                         style={{ opacity: "0.2" }}
-                                        data-src={cooporate.src}
                                         alt={cooporate.name}
-                                        src={cooporate.src}
+                                        src={globalConfig.domain + cooporate.src}
                                         width={398}
                                         height={164}
                                     />

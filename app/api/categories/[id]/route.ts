@@ -35,10 +35,21 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
             return NextResponse.json({ error: "Validation failed", issues: validation.error.errors }, { status: 400 });
         }
 
+        const category_exists = await prisma.category.findFirst({
+            where: {
+                id: { not: category.id },
+                name: validation.data.name
+            }
+        });
+
+        if (category_exists) {
+            return NextResponse.json({ error: "Category name already exists!" }, { status: 400 })
+        }
+
         let filePath = category.src;
 
         if (file && file instanceof Blob) {
-            if (category.src) {
+            if (category.src && fs.existsSync(path.join(process.cwd(), "public", category.src))) {
                 fs.unlinkSync(path.join(process.cwd(), "public", category.src));
             }
 

@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { globalConfig } from "@/data/globalConfig";
 import Pagination from "@/components/common/Pagination";
 
 export default function Categories() {
@@ -132,7 +133,7 @@ export default function Categories() {
                                     <td>
                                         <Image
                                             className="lazyload img-product"
-                                            src={category.src}
+                                            src={globalConfig.domain + category.src}
                                             alt="image-product"
                                             width={78}
                                             height={42}

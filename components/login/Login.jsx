@@ -84,11 +84,6 @@ export default function Login() {
                                 </label>
                             </div>
                             {error && <p className="error-message text-danger">{error}</p>}
-                            <div className="mb_20">
-                                <a href="#recover" className="tf-btn btn-line">
-                                    Forgot your password?
-                                </a>
-                            </div>
                             <div className="">
                                 <button
                                     type="submit"

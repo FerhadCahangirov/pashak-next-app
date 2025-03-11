@@ -27,6 +27,17 @@ export const POST = async (req: Request) => {
       return NextResponse.json({ error: "Validation failed", issues: validation.error.errors }, { status: 400 });
     }
 
+    const category_exists = await prisma.category.findFirst({
+        where: {
+            name: validation.data.name
+        }
+    });
+
+    if(category_exists)
+    {
+        return NextResponse.json({ error: "Category name already exists!" }, { status: 400 })
+    }
+
     const allowedMimeTypes = ["image/jpeg", "image/png"];
     if (!allowedMimeTypes.includes(file.type)) {
       return NextResponse.json({ error: "Invalid file type. Only JPEG and PNG are allowed." }, { status: 400 });
@@ -58,13 +69,11 @@ export const POST = async (req: Request) => {
   }
 };
 
-
 const querySchema = z.object({
     page: z.string().optional(),
     size: z.string().optional(),
     name: z.string().optional(),
 });
-
 
 export async function GET(req: Request) {
     try {

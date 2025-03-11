@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import DropzoneUpload from "./DropzoneUpload";
 import alertify from "alertifyjs"
 import Image from "next/image";
+import { globalConfig } from "@/data/globalConfig";
 
 export default function ProductUploads({ id }) {
     const [files, setFiles] = useState([]);
@@ -125,8 +126,8 @@ export default function ProductUploads({ id }) {
                         }}
                     >
                         <Image
-                            src={file.src}
-                            alt={file.src.split('/')[file.src.split('/').length - 1]}
+                            src={globalConfig.domain + file.src}
+                            alt="Product Image"
                             style={{ width: "78px", height: "42px", objectFit: "cover" }}
                             width={78}
                             height={42}

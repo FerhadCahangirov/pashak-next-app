@@ -2,6 +2,7 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { globalConfig } from "@/data/globalConfig";
 import Image from "next/image";
 
 export default function Cooporates() {
@@ -119,7 +120,7 @@ export default function Cooporates() {
                                     <td>
                                         <Image
                                             className="lazyload img-product"
-                                            src={cooporate.src}
+                                            src={globalConfig.domain + cooporate.src}
                                             alt="image-product"
                                             width={78}
                                             height={42}

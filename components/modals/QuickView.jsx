@@ -63,7 +63,7 @@ export default function QuickView() {
                                                 <div className="item">
                                                     <Image
                                                         alt={""}
-                                                        src={image.src}
+                                                        src={globalConfig.domain + image.src}
                                                         width={720}
                                                         height={1045}
                                                         style={{ objectFit: "contain" }}

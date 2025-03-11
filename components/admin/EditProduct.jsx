@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState, useMemo, useCallback } from "react"
 import dynamic from 'next/dynamic'
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false })
 import alertify from "alertifyjs"
+import { globalConfig } from "@/data/globalConfig";
 import Select from "react-dropdown-select"
 
 export default function EditProduct({ id }) {

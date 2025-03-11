@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useContextElement } from "@/context/Context";
+import { globalConfig } from "@/data/globalConfig";
 
 export const ProductCard = ({ product, index }) => {
     const [currentImage, setCurrentImage] = useState(product.imgSrc);
@@ -27,11 +28,11 @@ export const ProductCard = ({ product, index }) => {
     return (
         <div className="card-product fl-item" key={product.id}>
             <div className="card-product-wrapper">
-                <Link href={`/product-detail/${product.id}`} className="product-img" style={{ background: "#e5dddb"}}>
+                <Link href={`/product-detail/${product.id}`} className="product-img" style={{ background: "#e5dddb" }}>
                     <Image
                         className="lazyload img-product"
-                        data-src={product.images[0].src}
-                        src={product.images[0].src}
+                        data-src={globalConfig.domain + product.images[0].src}
+                        src={globalConfig.domain + product.images[0].src}
                         alt="image-product"
                         width={720}
                         height={1005}
@@ -39,9 +40,9 @@ export const ProductCard = ({ product, index }) => {
                     <Image
                         className="lazyload img-hover"
                         data-src={
-                            product.images.length > 1 ? product.images[1].src : product.images[0].src
+                            globalConfig.domain + (product.images.length > 1 ? product.images[1].src : product.images[0].src)
                         }
-                        src={product.images.length > 1 ? product.images[1].src : product.images[0].src}
+                        src={globalConfig.domain + (product.images.length > 1 ? product.images[1].src : product.images[0].src)}
                         alt="image-product"
                         width={720}
                         height={1005}

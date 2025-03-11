@@ -3,6 +3,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import alertify from 'alertifyjs';
+import { globalConfig } from "@/data/globalConfig";
 import Select from 'react-dropdown-select';
 import DropzoneSingleUpload from './DropzoneSingleUpload';
 
@@ -84,7 +85,7 @@ function EditBlog({ id }) {
         const data = await response.json();
 
         setTitle(data.blog.title);
-        setSrc(data.blog.src);
+        setSrc(globalConfig.domain + data.blog.src);
         setContent(data.blog.content);
         setTags(data.blog.tags.map(tag => {
             return { label: tag.name, value: tag.name }
@@ -100,7 +101,7 @@ function EditBlog({ id }) {
         setTitle(title);
         setContent(content);
         setTags(tags);
-        setSrc(src);
+        setSrc(globalConfig.domain + src);
         setFile(null);
         setFormHandled(false);
     }

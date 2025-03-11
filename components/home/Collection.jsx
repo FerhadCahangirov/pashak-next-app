@@ -65,7 +65,6 @@ function Collection() {
                                 Discover Our Story
                                 <i className="icon icon-arrow1-top-left" />
                             </Link>
-
                         </div>
                     </div>
                 </div>

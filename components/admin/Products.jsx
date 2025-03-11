@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Pagination from "../common/Pagination";
+import { globalConfig } from "@/data/globalConfig";
 
 export default function Products() {
 
@@ -11,7 +12,7 @@ export default function Products() {
     const [loading, setLoading] = useState(true);
     const [nameFilter, setNameFilter] = useState("");
     const [page, setPage] = useState(1);
-    const [pageSize] = useState(10); // Default items per page
+    const [pageSize] = useState(10);
     const [totalPages, setTotalPages] = useState(1);
 
     const [alertify, setAlertify] = useState(null);
@@ -135,8 +136,7 @@ export default function Products() {
                                         <td>
                                             <Image
                                                 className="lazyload img-product"
-                                                data-src={product.images[0].src}
-                                                src={product.images[0].src}
+                                                src={globalConfig.domain + product.images[0].src}
                                                 alt={product.name}
                                                 width={78}
                                                 height={42}
