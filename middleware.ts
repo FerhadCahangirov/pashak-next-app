@@ -4,8 +4,8 @@ import { isAuthenticated, updateSession } from "@/lib/auth";
 // Define protected and public routes
 const protectedRoute = "admin";
 const publicRoute = "login";
-const unprotectedPostRoutes = ["/api/messages/send"];
-const protectedGetRoutes = ["/api/messages"];
+const unprotectedPostRoutes = ["api/messages/send"];
+const protectedGetRoutes = ["api/messages", "api/account"];
 
 export default async function middleware(req: NextRequest) {
     const path = req.nextUrl.pathname;
@@ -13,14 +13,14 @@ export default async function middleware(req: NextRequest) {
     const isProtectedRoute = path.includes(protectedRoute);
     const isPublicRoute = path.includes(publicRoute);
     const isProtectedGetAPI = protectedGetRoutes.some(route => path.startsWith(route)) && method === "GET";
-    const isProtectedAPI = path.startsWith("/api/") && method !== "GET" && !unprotectedPostRoutes.includes(path);
+    const isProtectedAPI = path.includes("api") && method !== "GET" && !unprotectedPostRoutes.includes(path);
 
     // Check if the user is authenticated
     const authenticated = await isAuthenticated();
 
     // Handle unauthorized access
     if ((isProtectedRoute || isProtectedGetAPI || isProtectedAPI) && !authenticated) {
-        if (path.startsWith("/api/")) {
+        if (path.includes("api")) {
             return NextResponse.json({ error: "Not authorized" }, { status: 403 });
         } else {
             return NextResponse.redirect(new URL("/login", req.nextUrl));

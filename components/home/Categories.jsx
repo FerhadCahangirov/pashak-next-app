@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
+import { globalConfig } from "@/data/globalConfig";
 export default function Categories() {
 
     const [categories, setCategories] = useState([]);
@@ -84,9 +85,8 @@ export default function Categories() {
                                             >
                                                 <Image
                                                     className="lazyload"
-                                                    data-src={item.src}
                                                     alt={item.name}
-                                                    src={item.src}
+                                                    src={globalConfig.domain + item.src}
                                                     width="600"
                                                     height="721"
                                                     style={{

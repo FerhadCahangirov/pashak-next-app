@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Pagination from "../common/Pagination";
+import { globalConfig } from "@/data/globalConfig";
 
 export default function ShopCollections() {
     const [categories, setCategories] = useState([]);
@@ -50,9 +51,8 @@ export default function ShopCollections() {
                                 >
                                     <Image
                                         className="lazyload"
-                                        data-src={item.src}
                                         alt={item.name}
-                                        src={item.src}
+                                        src={globalConfig.domain + item.src}
                                         width={460}
                                         height={460}
                                         style={{

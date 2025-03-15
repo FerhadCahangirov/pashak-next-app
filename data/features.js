@@ -23,6 +23,4 @@ export const iconBoxes = [
         description:
             "We collaborate with renowned pharmaceutical companies worldwide, ensuring access to high-quality medicines and medical supplies.",
     },
-
-
 ]

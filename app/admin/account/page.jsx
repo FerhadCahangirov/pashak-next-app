@@ -1,11 +1,11 @@
 import DashboardNav from "@/components/admin/DashboardNav";
 import HeaderV3 from "@/components/headers/HeaderV3";
 import Footer from "@/components/home/Footer";
+import AccountSettings from "@/components/account/AccountSettings";
 import React from "react";
-import ProductUploads from "@/components/admin/ProductUploads";
 
 export const metadata = {
-    title: "Product Uploads || PashaK - The Best Pharmasy Company",
+    title: "Account || PashaK - The Best Pharmasy Company",
     description: "PashaK - The Best Pharmasy Company",
 };
 
@@ -15,7 +15,7 @@ export default function page({ params }) {
             <HeaderV3 />
             <div className="tf-page-title">
                 <div className="container-full">
-                    <div className="heading text-center">Edit Product</div>
+                    <div className="heading text-center">Account Settings</div>
                 </div>
             </div>
             <section className="flat-spacing-11">
@@ -25,7 +25,7 @@ export default function page({ params }) {
                             <DashboardNav />
                         </div>
                         <div className="col-lg-9">
-                            <ProductUploads id={params.id} />
+                            <AccountSettings/>
                         </div>
                     </div>
                 </div>

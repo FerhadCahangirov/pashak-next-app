@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import { globalConfig } from "@/data/globalConfig";
@@ -10,7 +11,6 @@ export default function SearchModal() {
     const [products, setProducts] = useState([]);
 
     const fetchProducts = useCallback(async () => {
-
         try {
             if (nameFilter) {
                 const response = await fetch(`/api/products?name=${nameFilter}`);
@@ -133,7 +133,6 @@ export default function SearchModal() {
                                         </div>
                                     )
                                 }
-
                             </div>
                         </div>
                     </div>

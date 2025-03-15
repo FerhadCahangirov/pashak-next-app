@@ -111,6 +111,18 @@ export async function updateSession(request: NextRequest) {
     return res;
 }
 
+export async function resetPassword(password: string)
+{
+    const user = await prisma.user.findFirst();
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    await prisma.user.update({
+        where: {id: user?.id},
+        data: {
+            password: passwordHash
+        }
+    });
+}
 
 const prisma = new PrismaClient();
 

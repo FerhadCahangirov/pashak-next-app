@@ -64,7 +64,7 @@ export default function AddCategory() {
             }
 
             const result = await response.json();
-            initializeData();
+            initializeData();   
             alertify.success("Category added successfully!");
         } catch (error) {
             console.error("Error uploading category:", error);
