@@ -1,5 +1,5 @@
-
 "use client";
+
 import { useContextElement } from "@/context/Context";
 
 import Image from "next/image";
@@ -8,6 +8,7 @@ import Link from "next/link";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useState } from "react";
+import { globalConfig } from "@/data/globalConfig";
 
 export default function QuickView() {
     const {
