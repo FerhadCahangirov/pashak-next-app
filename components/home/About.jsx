@@ -15,7 +15,7 @@ export default function About() {
                                     <img
                                         className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/about1.jpg"
+                                        src="/images/collections/IMG_0881.jpg"
                                         width="272"
                                         height="325"
                                     />
@@ -26,7 +26,7 @@ export default function About() {
                                     <img
                                         className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/bc1.jpg"
+                                        src="/images/collections/IMG_0890.jpg"
                                         width="400"
                                         height="539"
                                     />
@@ -37,7 +37,7 @@ export default function About() {
                                     <img
                                         className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/about3.jpg"
+                                        src="/images/collections/IMG_0900.jpg"
                                         width="217"
                                         height="219"
                                     />
@@ -47,7 +47,7 @@ export default function About() {
                     </div>
                     <div className="tf-content-wrap wow fadeInUp" data-wow-delay="0s">
                         <h2 className="heading fade-item fade-item-1">
-                            We are best <br className="d-none d-xl-block" />
+                            We Are The Best <br className="d-none d-xl-block" />
                             Medical Company
                         </h2>
                         <p className="desc fade-item fade-item-2">

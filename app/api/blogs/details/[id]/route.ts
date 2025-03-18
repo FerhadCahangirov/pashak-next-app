@@ -36,15 +36,10 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
 
         let relatedBlogs = await prisma.blog.findMany({
             where: { id: { not: blog.id } },
-            include: { tags: true }
-        });
-
-        const blogTagNames = blog.tags.map(tag => tag.name);
-
-        relatedBlogs.sort((a, b) => {
-            const aMatches = a.tags.filter(tag => blogTagNames.includes(tag.name)).length;
-            const bMatches = b.tags.filter(tag => blogTagNames.includes(tag.name)).length;
-            return bMatches - aMatches;
+            include: { tags: true },
+            orderBy: {
+                createdAt: 'desc'
+            }
         });
 
         return NextResponse.json({

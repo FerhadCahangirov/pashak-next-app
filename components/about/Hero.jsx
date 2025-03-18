@@ -8,7 +8,7 @@ export default function Hero() {
             <div
                 className="banner-wrapper"
                 style={{
-                    backgroundImage: "url('/images/collections/b.jpg')",
+                    backgroundImage: "url('/images/collections/IMG_0868.jpg')",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundAttachment: "fixed",

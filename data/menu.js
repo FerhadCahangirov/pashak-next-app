@@ -12,6 +12,10 @@ export const menuItems = [
         name: "medicines"
     },
     {
+        href: "/our-story",
+        name: "our story"
+    },
+    {
         href: "/coorporates",
         name: "coorporates"
     },

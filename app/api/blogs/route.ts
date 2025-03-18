@@ -81,7 +81,10 @@ export async function GET(req: Request) {
 
         if (!title || title.trim() === "") {
             blogs = await prisma.blog.findMany({
-                include: { tags: true }
+                include: { tags: true },
+                orderBy: {
+                    createdAt: 'desc'
+                }
             });
         }
         else {
@@ -91,7 +94,10 @@ export async function GET(req: Request) {
                         contains: title
                     }
                 },
-                include: { tags: true }
+                orderBy: {
+                    createdAt: 'desc'
+                },
+                include: { tags: true },
             });
         }
 

@@ -20,18 +20,14 @@ export default function page() {
                         <div className="tf-timeline-line" />
                         <div className="tf-timeline-item z-2 position-relative">
                             <div className="tf-timeline-inner d-flex align-items-center justify-content-between tf-timeline-content-end">
-                                <span className="tf-timeline-time">1980</span>
+                                <span className="tf-timeline-time">1996</span>
                                 <div className="tf-timeline-content">
                                     <div className="tf-timeline-label fw-7">PHASE 1</div>
                                     <h4 className="tf-timeline-title">
-                                        Inception and Brand Establishment
+                                        The Establishment Of Pasha-K
                                     </h4>
                                     <div className="tf-timeline-description">
-                                        Inception, in the context of brand establishment, refers to
-                                        the initial phase of creating and introducing a brand to the
-                                        market. It involves laying down the foundational elements that
-                                        will define the brand's identity, values, and positioning in
-                                        the minds of consumers.
+                                        The company “Pasha-K” was established as a legal entity on February 8, 1996, and was registered with the Ministry of Justice. The company has been engaged in the wholesale and retail sale of pharmaceutical products for 29 years.
                                     </div>
                                 </div>
                                 <div className="tf-timeline-image">
@@ -39,7 +35,7 @@ export default function page() {
                                         className="lazyload"
                                         data-=""
                                         alt="image"
-                                        src="/images/shop/file/timeline1.jpg"
+                                        src="/images/collections/IMG_0875.jpg"
                                         width={800}
                                         height={593}
                                     />
@@ -48,17 +44,16 @@ export default function page() {
                         </div>
                         <div className="tf-timeline-item z-2 position-relative">
                             <div className="tf-timeline-inner d-flex align-items-center justify-content-between">
-                                <span className="tf-timeline-time">2000</span>
+                                <span className="tf-timeline-time">2015</span>
                                 <div className="tf-timeline-content">
                                     <div className="tf-timeline-label fw-7">PHASE 2</div>
                                     <h4 className="tf-timeline-title">
-                                        Debut Collection and Market Entry
+                                        Operations and Licensing of “Pasha-K” Company
                                     </h4>
                                     <div className="tf-timeline-description">
-                                        Entering the market with a debut collection requires careful
-                                        planning, creativity, and perseverance. By following these
-                                        steps and staying true to your vision, you can increase your
-                                        chances of success in the fashion industry.
+                                        The company obtained license number 086503 from the Ministry of Health on October 20, 2015, for the purpose of wholesale distribution of pharmaceutical and medical products.
+                                        “Pasha-K” currently operates 21 pharmacies across Azerbaijan.
+                                        At the same time, the company collaborates with other firms and companies operating within the country that are engaged in the wholesale and retail sale of pharmaceutical products.
                                     </div>
                                 </div>
                                 <div className="tf-timeline-image">
@@ -66,58 +61,7 @@ export default function page() {
                                         className="lazyload"
                                         data-=""
                                         alt="image"
-                                        src="/images/shop/file/timeline2.jpg"
-                                        width={800}
-                                        height={593}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tf-timeline-item z-2 position-relative">
-                            <div className="tf-timeline-inner d-flex align-items-center justify-content-between tf-timeline-content-end">
-                                <span className="tf-timeline-time">2010</span>
-                                <div className="tf-timeline-content">
-                                    <div className="tf-timeline-label fw-7">PHASE 3</div>
-                                    <h4 className="tf-timeline-title">Growth and Recognition</h4>
-                                    <div className="tf-timeline-description">
-                                        During the Growth and Recognition phase of a brand's journey,
-                                        several key elements come into play to propel its expansion
-                                        and solidify its position in the market. Here's an outline of
-                                        what typically occurs during this phase
-                                    </div>
-                                </div>
-                                <div className="tf-timeline-image">
-                                    <Image
-                                        className="lazyload"
-                                        data-=""
-                                        alt="image"
-                                        src="/images/shop/file/timeline3.jpg"
-                                        width={800}
-                                        height={593}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="tf-timeline-item z-2 position-relative">
-                            <div className="tf-timeline-inner d-flex align-items-center justify-content-between">
-                                <span className="tf-timeline-time">2024</span>
-                                <div className="tf-timeline-content">
-                                    <div className="tf-timeline-label fw-7">PHASE 4</div>
-                                    <h4 className="tf-timeline-title">Sustainable Initiatives</h4>
-                                    <div className="tf-timeline-description">
-                                        Sustainable initiatives play a crucial role in the growth and
-                                        development of a brand, especially in today's environmentally
-                                        conscious and socially responsible market landscape. Here are
-                                        some examples of sustainable initiatives that brands may
-                                        undertake
-                                    </div>
-                                </div>
-                                <div className="tf-timeline-image">
-                                    <Image
-                                        className="lazyload"
-                                        data-=""
-                                        alt="image"
-                                        src="/images/shop/file/timeline4.jpg"
+                                        src="/images/collections/IMG_0929.jpg"
                                         width={800}
                                         height={593}
                                     />

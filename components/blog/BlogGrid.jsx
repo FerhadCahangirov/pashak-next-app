@@ -42,6 +42,10 @@ export default function BlogGrid() {
                                             src={globalConfig.domain + post.src}
                                             width={550}
                                             height={354}
+                                            style={{
+                                                width: '550px',
+                                                height: '354px'
+                                            }}
                                         />
                                     </a>
                                     <div className="article-label">

@@ -10,7 +10,7 @@ export default function About() {
                             <img
                                 className="lazyload w-100"
                                 alt="collection-img"
-                                src="/images/collections/about1.jpg"
+                                src="/images/collections/IMG_0884.jpg"
                                 width={600}
                                 height={499}
                             />
@@ -56,7 +56,7 @@ export default function About() {
                                 <div className="img-style">
                                     <img
                                         className="lazyload"
-                                        src="/images/collections/about2.crop.jpeg"
+                                        src="/images/collections/IMG_0894.jpg"
                                         data-=""
                                         alt="img-slider"
                                         width={337}
@@ -68,7 +68,7 @@ export default function About() {
                                 <div className="img-style">
                                     <img
                                         className="lazyload"
-                                        src="/images/collections/about3.jpg"
+                                        src="/images/collections/IMG_0916.jpg"
                                         data-=""
                                         alt="img-slider"
                                         width={400}
