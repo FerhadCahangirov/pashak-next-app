@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function AddCategory() {
     const [errors, setErrors] = useState({
@@ -15,6 +16,8 @@ export default function AddCategory() {
     const [alertify, setAlertify] = useState(null);
 
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -35,8 +38,7 @@ export default function AddCategory() {
     };
 
     useEffect(() => {
-        if(formHandled)
-        {
+        if (formHandled) {
             validateForm();
         }
     }, [name, file]);
@@ -51,6 +53,7 @@ export default function AddCategory() {
         formData.append("name", name);
         formData.append("file", file.file);
 
+        setLoading(true);
         try {
             const response = await fetch("/api/categories", {
                 method: 'POST',
@@ -64,11 +67,13 @@ export default function AddCategory() {
             }
 
             const result = await response.json();
-            initializeData();   
+            initializeData();
             alertify.success("Category added successfully!");
         } catch (error) {
             console.error("Error uploading category:", error);
             alertify.error("An error occurred while uploading the category.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -114,12 +119,7 @@ export default function AddCategory() {
 
 
                     <div className="mb_20 mt_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

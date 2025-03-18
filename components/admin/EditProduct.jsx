@@ -6,6 +6,7 @@ const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false })
 import alertify from "alertifyjs"
 import { globalConfig } from "@/data/globalConfig";
 import Select from "react-dropdown-select"
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function EditProduct({ id }) {
     const [errors, setErrors] = useState({
@@ -27,6 +28,8 @@ export default function EditProduct({ id }) {
 
     const memoizedCategories = useMemo(() => categories, [categories]);
     const memoizedOptions = useMemo(() => options, [options]);
+
+    const [loading, setLoading] = useState(false);
 
     const fetchData = async (url, onSuccess, onError) => {
         try {
@@ -80,12 +83,11 @@ export default function EditProduct({ id }) {
         return Object.values(newErrors).every(error => error === null);
     };
 
-        useEffect(() => {
-            if(formHandled)
-            {
-                validateForm();
-            }
-        }, [categoryId, productName, compositions, description]);
+    useEffect(() => {
+        if (formHandled) {
+            validateForm();
+        }
+    }, [categoryId, productName, compositions, description]);
 
     const handleSubmit = useCallback(
         async (event) => {
@@ -94,6 +96,7 @@ export default function EditProduct({ id }) {
 
             if (!validateForm()) return;
 
+            setLoading(true);
             try {
                 const formData = new FormData();
 
@@ -127,6 +130,8 @@ export default function EditProduct({ id }) {
             } catch (error) {
                 console.error("Error submitting product:", error);
                 alertify.error(error.message || "Failed to submit the product. Please try again.");
+            } finally {
+                setLoading(false);
             }
         },
         [content, categoryId, productName, description, compositions] // Memoize the function to prevent re-creating it on every render
@@ -228,12 +233,7 @@ export default function EditProduct({ id }) {
                     </div>
 
                     <div className="mb_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

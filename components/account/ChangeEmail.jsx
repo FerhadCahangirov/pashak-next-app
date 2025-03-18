@@ -1,12 +1,12 @@
 "use client"
 
 import React, { useCallback, useEffect, useState } from 'react'
+import SaveChangesButton from '../common/SaveChangesButton';
 
 function ChangeEmail() {
-
     const [email, setEmail] = useState("");
-
     const [alertify, setAlertify] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -42,6 +42,7 @@ function ChangeEmail() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        setLoading(true);
         try {
             const response = await fetch("/api/account/changeEmail", {
                 method: "POST",
@@ -62,6 +63,8 @@ function ChangeEmail() {
         } catch (err) {
             console.error(err);
             alertify.error("Failed to change account email.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -93,12 +96,7 @@ function ChangeEmail() {
                 </div>
 
                 <div className="mb_40 mt_20">
-                    <button
-                        type="submit"
-                        className="tf-btn w-20 radius-3 btn-fill animate-hover-btn justify-content-center"
-                    >
-                        Save Changes
-                    </button>
+                    <SaveChangesButton loading={loading} isLong={false} />
                 </div>
 
             </form></>

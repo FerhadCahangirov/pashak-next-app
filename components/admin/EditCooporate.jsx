@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
 import { globalConfig } from "@/data/globalConfig";
 import alertify from 'alertifyjs';
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function EditCooporate({ id }) {
     const types = ["pharmacy", "medicalDevice"];
@@ -17,6 +18,8 @@ export default function EditCooporate({ id }) {
     const [src, setSrc] = useState(null);
     const [type, setType] = useState(types[0]);
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     const validateForm = () => {
         const newErrors = {
@@ -47,6 +50,7 @@ export default function EditCooporate({ id }) {
             formData.append("file", file.file);
         }
 
+        setLoading(true);
         try {
             const response = await fetch(`/api/cooporates/${id}`, {
                 method: 'PUT',
@@ -71,6 +75,8 @@ export default function EditCooporate({ id }) {
         } catch (error) {
             console.error("Error updating cooporate:", error);
             alertify.error("An error occurred while updating the cooporate.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -153,12 +159,7 @@ export default function EditCooporate({ id }) {
                     </div>
 
                     <div className="mb_20 mt_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

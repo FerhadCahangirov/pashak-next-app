@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import Select from 'react-dropdown-select';
 import DropzoneSingleUpload from './DropzoneSingleUpload';
+import SaveChangesButton from '../common/SaveChangesButton';
 
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false });
 
@@ -22,6 +23,8 @@ function AddBlog() {
     const [alertify, setAlertify] = useState(null);
 
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -43,6 +46,7 @@ function AddBlog() {
         formData.append('file', file.file);
         tags.forEach(tag => formData.append('tags', tag.value));
 
+        setLoading(true);
         try {
             const response = await fetch('/api/blogs', {
                 method: 'POST',
@@ -59,6 +63,8 @@ function AddBlog() {
             clear();
         } catch (error) {
             alertify.error(error.message);
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -134,12 +140,7 @@ function AddBlog() {
                     </div>
 
                     <div className="mb_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading} />
                     </div>
                 </form>
             </div>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function AddCooporate() {
     const types = ["pharmacy", "medicalDevice"];
@@ -18,6 +19,8 @@ export default function AddCooporate() {
     const [alertify, setAlertify] = useState(null);
 
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -38,8 +41,7 @@ export default function AddCooporate() {
     };
 
     useEffect(() => {
-        if(formHandled)
-        {
+        if (formHandled) {
             validateForm();
         }
     }, [name, file]);
@@ -55,6 +57,7 @@ export default function AddCooporate() {
         formData.append("file", file.file);
         formData.append("type", type);
 
+        setLoading(true);
         try {
             const response = await fetch("/api/cooporates", {
                 method: 'POST',
@@ -69,11 +72,12 @@ export default function AddCooporate() {
 
             const result = await response.json();
             initializeData();
-            setFormHandled(false);
             alertify.success("Cooporate added successfully!");
         } catch (error) {
             console.error("Error uploading cooporate:", error);
             alertify.error("An error occurred while uploading the cooporate.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -81,6 +85,7 @@ export default function AddCooporate() {
         setFile(null);
         setName("");
         setType(type[0]);
+        setFormHandled(false);
     }
 
     return (
@@ -136,12 +141,7 @@ export default function AddCooporate() {
                     </div>
 
                     <div className="mb_20 mt_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

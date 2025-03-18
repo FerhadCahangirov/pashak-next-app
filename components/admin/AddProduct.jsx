@@ -5,6 +5,7 @@ import DropzoneUpload from "./DropzoneUpload";
 import dynamic from 'next/dynamic'
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false })
 import Select from "react-dropdown-select"
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function AddProduct() {
     const [errors, setErrors] = useState({
@@ -33,6 +34,8 @@ export default function AddProduct() {
     const memoizedOptions = useMemo(() => options, [options]);
 
     const [alertify, setAlertify] = useState(null);
+
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -85,8 +88,7 @@ export default function AddProduct() {
     };
 
     useEffect(() => {
-        if(formHandled)
-        {
+        if (formHandled) {
             validateForm();
         }
     }, [files, categoryId, productName, compositions, description]);
@@ -98,6 +100,7 @@ export default function AddProduct() {
 
             if (!validateForm()) return;
 
+            setLoading(true);
             try {
                 const formData = new FormData();
                 formData.append("name", productName);
@@ -122,6 +125,8 @@ export default function AddProduct() {
             } catch (error) {
                 console.error("Error submitting product:", error);
                 alertify.error(error.message || "Failed to submit the product. Please try again.");
+            } finally {
+                setLoading(false);
             }
         },
         [content, files, categoryId, productName, compositions, description]
@@ -229,12 +234,7 @@ export default function AddProduct() {
                     </div>
 
                     <div className="mb_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

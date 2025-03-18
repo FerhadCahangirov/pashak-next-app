@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
+import SaveChangesButton from '../common/SaveChangesButton';
 
 function ResetPassword() {
     const [password, setPassword] = useState("");
@@ -10,6 +11,7 @@ function ResetPassword() {
     const [passwordConfirmError, setPasswordConfirmError] = useState(null);
 
     const [alertify, setAlertify] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -42,6 +44,7 @@ function ResetPassword() {
             setPasswordConfirmError(null);
         }
 
+        setLoading(true);
         try {
             const response = await fetch("/api/account/resetPassword", {
                 method: "POST",
@@ -63,6 +66,8 @@ function ResetPassword() {
         } catch (err) {
             console.error(err);
             alertify.error("Failed to reset account password.");
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -116,12 +121,7 @@ function ResetPassword() {
 
 
                 <div className="mb_20 mt_20">
-                    <button
-                        type="submit"
-                        className="tf-btn w-20 radius-3 btn-fill animate-hover-btn justify-content-center"
-                    >
-                        Reset
-                    </button>
+                    <SaveChangesButton loading={loading} isLong={false} buttonText='Reset'/>
                 </div>
 
             </form>

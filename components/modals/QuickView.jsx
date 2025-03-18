@@ -2,7 +2,6 @@
 
 import { useContextElement } from "@/context/Context";
 
-import Image from "next/image";
 import Link from "next/link";
 
 import { Navigation } from "swiper/modules";
@@ -62,7 +61,7 @@ export default function QuickView() {
                                         {quickViewItem.images.map((image, index) => (
                                             <SwiperSlide className="swiper-slide" key={index}>
                                                 <div className="item">
-                                                    <Image
+                                                    <img
                                                         alt={""}
                                                         src={globalConfig.domain + image.src}
                                                         width={720}
@@ -113,7 +112,6 @@ export default function QuickView() {
                         </div>
                     </div>
                 }
-
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const accountLinks = [
@@ -39,13 +38,13 @@ export default function DashboardNav() {
         <ul className="my-account-nav">
             {accountLinks.map((link, index) => (
                 <li key={index}>
-                    <Link
+                    <a
                         href={link.href}
                         className={`my-account-nav-item ${pathname == link.href ? "active" : ""
                             }`}
                     >
                         {link.label}
-                    </Link>
+                    </a>
                 </li>
             ))}
             <li>

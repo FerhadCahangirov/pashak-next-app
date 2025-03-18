@@ -1,17 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError("");
 
+        setLoading(true);
         try {
             const response = await fetch("/api/login", {
                 method: "POST",
@@ -29,6 +32,8 @@ export default function Login() {
             router.push("/admin");
         } catch (err) {
             setError(err.message);
+        }finally{
+            setLoading(false);
         }
     };
 
@@ -85,12 +90,7 @@ export default function Login() {
                             </div>
                             {error && <p className="error-message text-danger">{error}</p>}
                             <div className="">
-                                <button
-                                    type="submit"
-                                    className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                                >
-                                    Log in
-                                </button>
+                                <SaveChangesButton loading={loading} buttonText="Login"/>
                             </div>
                         </form>
                     </div>

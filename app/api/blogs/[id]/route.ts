@@ -40,7 +40,9 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
 
         let filePath = blog.src;
         if (parsedData.file) {
-            if (filePath) fs.unlinkSync(path.join(process.cwd(), "public", filePath));
+
+            if (fs.existsSync(path.join(process.cwd(), "public", filePath)))
+                fs.unlinkSync(path.join(process.cwd(), "public", filePath));
 
             const fileExt = ".bin";
             const fileName = `${Date.now()}${fileExt}`;

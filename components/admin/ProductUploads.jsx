@@ -5,10 +5,12 @@ import DropzoneUpload from "./DropzoneUpload";
 import alertify from "alertifyjs"
 import Image from "next/image";
 import { globalConfig } from "@/data/globalConfig";
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function ProductUploads({ id }) {
     const [files, setFiles] = useState([]);
     const [productImages, setProductImages] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const fetchProductImages = useCallback(async () => {
         try {
@@ -31,6 +33,7 @@ export default function ProductUploads({ id }) {
         async (event) => {
             event.preventDefault();
 
+            setLoading(true);
             try {
                 const formData = new FormData();
 
@@ -57,6 +60,8 @@ export default function ProductUploads({ id }) {
             } catch (error) {
                 console.error("Error uploading product images:", error);
                 alertify.error(error.message || "Failed to upload product images. Please try again.");
+            } finally {
+                setLoading(false);
             }
         },
         [files] // Memoize the function to prevent re-creating it on every render
@@ -98,12 +103,7 @@ export default function ProductUploads({ id }) {
                     </div>
 
                     <div className="mb_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

@@ -6,13 +6,14 @@ import alertify from 'alertifyjs';
 import { globalConfig } from "@/data/globalConfig";
 import Select from 'react-dropdown-select';
 import DropzoneSingleUpload from './DropzoneSingleUpload';
+import SaveChangesButton from '../common/SaveChangesButton';
+
 
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false });
 
 function EditBlog({ id }) {
     const [errors, setErrors] = useState({
         title: null,
-        file: null,
     });
 
     const [tags, setTags] = useState([]);
@@ -21,6 +22,8 @@ function EditBlog({ id }) {
     const [content, setContent] = useState('');
     const [src, setSrc] = useState(null);
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -36,6 +39,7 @@ function EditBlog({ id }) {
         }
         tags.forEach(tag => formData.append('tags', tag.value));
 
+        setLoading(true);
         try {
             const response = await fetch(`/api/blogs/${id}`, {
                 method: 'PUT',
@@ -55,12 +59,14 @@ function EditBlog({ id }) {
         } catch (error) {
             alertify.error(error.message);
         }
+        finally {
+            setLoading(false);
+        }
     };
 
     const validateForm = () => {
         const newErrors = {
             title: title.trim() ? null : "Title is required",
-            file: file ? null : "File is required",
         };
 
         setErrors(newErrors);
@@ -114,7 +120,6 @@ function EditBlog({ id }) {
 
                     <div className="mb_15">
                         <DropzoneSingleUpload file={file} setFile={setFile} src={src} setSrc={setSrc} />
-                        {errors.file && <p style={{ color: "red" }}>{errors.file}</p>}
                     </div>
 
                     <div className="tf-field style-1 mb_15">
@@ -153,12 +158,8 @@ function EditBlog({ id }) {
                     </div>
 
                     <div className="mb_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading} />
+
                     </div>
                 </form>
             </div>

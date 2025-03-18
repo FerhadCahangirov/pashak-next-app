@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
 import { globalConfig } from "@/data/globalConfig";
 import alertify from 'alertifyjs';
+import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function EditCategory({ id }) {
 
@@ -15,6 +16,8 @@ export default function EditCategory({ id }) {
     const [name, setName] = useState("");
     const [src, setSrc] = useState(null);
     const [formHandled, setFormHandled] = useState(false);
+
+    const [loading, setLoading] = useState(false);
 
     const validateForm = () => {
         const newErrors = {
@@ -44,6 +47,7 @@ export default function EditCategory({ id }) {
             formData.append("file", file.file);
         }
 
+        setLoading(true);
         try {
             const response = await fetch(`/api/categories/${id}`, {
                 method: 'PUT',
@@ -64,6 +68,8 @@ export default function EditCategory({ id }) {
         } catch (error) {
             console.error("Error updating category:", error);
             alertify.error("An error occurred while updating the category.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -125,12 +131,7 @@ export default function EditCategory({ id }) {
                     {errors.name && <p style={{ color: "red", marginTop: "-10px" }}>{errors.name}</p>}
 
                     <div className="mb_20 mt_20">
-                        <button
-                            type="submit"
-                            className="tf-btn w-100 radius-3 btn-fill animate-hover-btn justify-content-center"
-                        >
-                            Save Changes
-                        </button>
+                        <SaveChangesButton loading={loading}/>
                     </div>
                 </form>
             </div>

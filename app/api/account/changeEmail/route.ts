@@ -30,7 +30,7 @@ export async function POST(req: Request) {
 
         return NextResponse.json(
             {
-                message: "Message sent successfully",
+                message: "Acccount email changed successfully",
                 email: newUser.email
             },
             { status: 200 }
