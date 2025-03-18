@@ -1,7 +1,6 @@
 "use client";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import Link from "next/link";
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
 import { useCallback, useEffect, useState } from "react";
@@ -60,7 +59,7 @@ export default function Blogs() {
                                     data-wow-delay={index / 10}
                                 >
                                     <div className="article-thumb h-460 rounded-0">
-                                        <Link href={`/blog-detail/${article.id}`}>
+                                        <a href={`/blog-detail/${article.id}`}>
                                             <Image
                                                 className="lazyload"
                                                 data-src={article.src}
@@ -69,30 +68,30 @@ export default function Blogs() {
                                                 width={550}
                                                 height={354}
                                             />
-                                        </Link>
+                                        </a>
                                         <div className="article-label">
-                                            <Link
+                                            <a
                                                 href={`/blog-grid`}
                                                 className="tf-btn btn-sm animate-hover-btn"
                                             >
                                                {article.tags[0].name}   
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
                                     <div className="article-content">
                                         <div className="article-title">
-                                            <Link href={`/blog-detail/${article.id}`}>
+                                            <a href={`/blog-detail/${article.id}`}>
                                                 {article.title}
-                                            </Link>
+                                            </a>
                                         </div>
                                         <div className="article-btn">
-                                            <Link
+                                            <a
                                                 href={`/blog-detail/${article.id}`}
                                                 className="tf-btn btn-line fw-6"
                                             >
                                                 Read more
                                                 <i className="icon icon-arrow1-top-left" />
-                                            </Link>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>

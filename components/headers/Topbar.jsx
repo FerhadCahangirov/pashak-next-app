@@ -1,8 +1,5 @@
 "use client";
 import React from "react";
-import Link from "next/link";
-import LanguageSelect from "../common/LanguageSelect";
-import CurrencySelect from "../common/CurrencySelect";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
@@ -62,14 +59,14 @@ export default function Topbar() {
                             <SwiperSlide className="swiper-slide">
                                 <p className="top-bar-text fw-5">
                                     Quality Medicines Available{" "}
-                                    <Link
+                                    <a
                                         href={`/products`}
                                         title="all products"
                                         className="tf-btn btn-line"
                                     >
                                         Explore Now
                                         <i className="icon icon-arrow1-top-left" />
-                                    </Link>
+                                    </a>
                                 </p>
                             </SwiperSlide>
                             <SwiperSlide className="swiper-slide">

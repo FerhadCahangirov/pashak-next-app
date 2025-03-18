@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { globalConfig } from "@/data/globalConfig";
 import Pagination from "@/components/common/Pagination";
@@ -103,13 +102,13 @@ export default function Categories() {
                 </div>
                 <div className="col-md-3 col-6">
                     <div className="d-flex">
-                        <Link
+                        <a
                             href={`/admin/categories/add`}
                             className="tf-btn btn-fill btn-xl animate-hover-btn rounded-0 justify-content-center"
                             style={{ height: "50px" }}
                         >
                             <span>Add</span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -141,21 +140,21 @@ export default function Categories() {
                                     </td>
                                     <td>{category.name}</td>
                                     <td>
-                                        <Link
+                                        <a
                                             href={`/admin/categories/edit/${category.id}`}
                                             className="tf-btn btn-fill btn-color-5 animate-hover-btn rounded-0 justify-content-center"
                                             style={{ marginLeft: "5px" }}
                                         >
                                             <span>Edit</span>
-                                        </Link>
-                                        <Link
+                                        </a>
+                                        <a
                                             href="javascript:void(0);"
                                             onClick={() => handleRemove(category.id)}
                                             className="tf-btn btn-fill btn-color-3 animate-hover-btn rounded-0 justify-content-center"
                                             style={{ marginLeft: "5px" }}
                                         >
                                             <span>Delete</span>
-                                        </Link>
+                                        </a>
                                     </td>
                                 </tr>
                             ))

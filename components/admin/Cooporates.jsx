@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
 import { globalConfig } from "@/data/globalConfig";
 import Image from "next/image";
 
@@ -89,13 +88,13 @@ export default function Cooporates() {
                 </div>
                 <div className="col-md-3 col-6">
                     <div className="d-flex">
-                        <Link
+                        <a
                             href={`/admin/cooporates/add`}
                             className="tf-btn btn-fill btn-xl animate-hover-btn rounded-0 justify-content-center"
                             style={{ height: "50px" }}
                         >
                             <span>Add</span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -129,21 +128,21 @@ export default function Cooporates() {
                                     <td>{cooporate.name}</td>
                                     <td className="fw-8">{cooporate.type}</td>
                                     <td>
-                                        <Link
+                                        <a
                                             href={`/admin/cooporates/edit/${cooporate.id}`}
                                             className="tf-btn btn-fill btn-color-5 animate-hover-btn rounded-0 justify-content-center"
                                             style={{ marginLeft: "5px" }}
                                         >
                                             <span>Edit</span>
-                                        </Link>
-                                        <Link
+                                        </a>
+                                        <a
                                             href="javascript:void(0);"
                                             onClick={() => handleRemove(cooporate.id)}
                                             className="tf-btn btn-fill btn-color-3 animate-hover-btn rounded-0 justify-content-center"
                                             style={{ marginLeft: "5px" }}
                                         >
                                             <span>Delete</span>
-                                        </Link>
+                                        </a>
                                     </td>
                                 </tr>
                             ))

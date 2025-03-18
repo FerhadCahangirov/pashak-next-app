@@ -2,7 +2,6 @@
 import React from "react";
 import { menuItems } from '@/data/menu'
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 
 export default function Nav({ textColor = "", Linkfs = "" }) {
     const pathname = usePathname();
@@ -20,12 +19,12 @@ export default function Nav({ textColor = "", Linkfs = "" }) {
             {menuItems.map((menuItem, index) => {
                 return (
                     <li className="menu-item" key={index}>
-                        <Link
+                        <a
                             href={menuItem.href}
                             className={`item-link ${isMenuActive(menuItem) && "activeMenu"} `}
                         >
                             {menuItem.name}
-                        </Link>
+                        </a>
                     </li>
                 )
             })}

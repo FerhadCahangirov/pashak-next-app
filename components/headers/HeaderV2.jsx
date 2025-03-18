@@ -1,8 +1,6 @@
 import React from "react";
 import Nav from "./Nav";
 import Image from "next/image";
-import Link from "next/link";
-import { isAuthenticated } from "@/lib/auth";
 
 export default function HeaderV2() {
     return (
@@ -31,7 +29,7 @@ export default function HeaderV2() {
                         </a>
                     </div>
                     <div className="col-xl-3 col-md-4 col-6">
-                        <Link href={`/`} className="logo-header">
+                        <a href={`/`} className="logo-header">
                             <Image
                                 alt="logo"
                                 className="logo"
@@ -39,7 +37,7 @@ export default function HeaderV2() {
                                 width={272}
                                 height={42}
                             />
-                        </Link>
+                        </a>
                     </div>
                     <div className="col-xl-6 tf-md-hidden">
                         <nav className="box-navigation text-center">

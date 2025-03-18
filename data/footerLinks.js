@@ -1,8 +1,8 @@
 export const footerLinks = [
     { href: "/products", text: "Visit Our Medicines" },
     { href: "/categories", text: "Browse Our Categories" },
-    { href: "/blogs", text: "Read Our Latest Blogs" },
-    { href: "/cooporates", text: "Our Corporate Partners" },
+    { href: "/blog", text: "Read Our Latest Blogs" },
+    { href: "/coorporates", text: "Our Corporate Partners" },
 ];
 
 export const aboutLinks = [

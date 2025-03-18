@@ -1,6 +1,5 @@
 "use client"
 
-import Link from 'next/link';
 import React, { useCallback, useState, useEffect } from 'react'
 import Pagination from "../common/Pagination"
 
@@ -127,13 +126,13 @@ function MessageBox() {
                                         <td>{new Date(message.createdAt).toLocaleDateString("en-US", options)}</td>
                                         <td>
 
-                                            <Link
+                                            <a
                                                 href={`/admin/message-box/${message.id}`}
                                                 className="tf-btn btn-fill btn-color-1 animate-hover-btn rounded-0 justify-content-center"
                                                 style={{ marginLeft: "5px" }}
                                             >
                                                 <span>View</span>
-                                            </Link>
+                                            </a>
                                             <button
                                                 onClick={() => handleRemove(message.id)}
                                                 className="tf-btn btn-fill btn-color-6 animate-hover-btn rounded-0 justify-content-center"

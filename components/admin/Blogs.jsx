@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import Link from "next/link";
 import { globalConfig } from "@/data/globalConfig";
 import Image from "next/image";
 
@@ -97,13 +96,13 @@ export default function blogs() {
                 <div className="col-md-3 col-6">
                     <div className="d-flex">
 
-                        <Link
+                        <a
                             href={`/admin/blogs/add`}
                             className="tf-btn btn-fill btn-xl animate-hover-btn rounded-0 justify-content-center"
                             style={{ height: "50px" }}
                         >
                             <span>Add</span>
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -139,21 +138,21 @@ export default function blogs() {
                                         <td>{new Date(blog.createdAt).toLocaleDateString("en-US", options)}</td>
                                         <td>
 
-                                            <Link
+                                            <a
                                                 href={`/admin/blogs/edit/${blog.id}`}
                                                 className="tf-btn btn-fill btn-color-1 animate-hover-btn rounded-0 justify-content-center"
                                                 style={{ marginLeft: "5px" }}
                                             >
                                                 <span>Edit</span>
-                                            </Link>
-                                            <Link
+                                            </a>
+                                            <a
                                                 href={`javascript:void(0)`}
                                                 onClick={() => handleRemove(blog.id)}
                                                 className="tf-btn btn-fill btn-color-6 animate-hover-btn rounded-0 justify-content-center"
                                                 style={{ marginLeft: "5px" }}
                                             >
                                                 <span>Delete</span>
-                                            </Link>
+                                            </a>
                                         </td>
                                     </tr>
                                 ))

@@ -79,7 +79,7 @@ export default function Categories() {
                                 <SwiperSlide className="swiper-slide" key={index}>
                                     <div className="collection-item style-left hover-img">
                                         <div className="collection-inner">
-                                            <Link
+                                            <a
                                                 href={`/categories/${item.id}`}
                                                 className="collection-image img-style"
                                             >
@@ -93,15 +93,15 @@ export default function Categories() {
                                                         height:"320px"
                                                     }}
                                                 />
-                                            </Link>
+                                            </a>
                                             <div className="collection-content">
-                                                <Link
+                                                <a
                                                     href={`/categories/${item.id}`}
                                                     className="tf-btn collection-title hover-icon fs-15"
                                                 >
                                                     <span>{item.name}</span>
                                                     <i className="icon icon-arrow1-top-left" />
-                                                </Link>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -112,9 +112,9 @@ export default function Categories() {
                     <div className="col-xl-3 col-lg-4 col-md-4">
                         <div className="discovery-new-item">
                             <h5>Discovery all categories</h5>
-                            <Link href={`/categories`}>
+                            <a href={`/categories`}>
                                 <i className="icon-arrow1-top-left" />
-                            </Link>
+                            </a>
                         </div>
                     </div>
                 </div>

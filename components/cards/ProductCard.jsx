@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { useContextElement } from "@/context/Context";
 import { globalConfig } from "@/data/globalConfig";
 
@@ -27,7 +26,7 @@ export const ProductCard = ({ product, index }) => {
     return (
         <div className="card-product fl-item" key={product.id}>
             <div className="card-product-wrapper">
-                <Link href={`/product-detail/${product.id}`} className="product-img" style={{ background: "#e5dddb" }}>
+                <a href={`/product-detail/${product.id}`} className="product-img" style={{ background: "#e5dddb" }}>
                     <img
                         className="lazyload img-product"
                         src={globalConfig.domain + product.images[0].src}
@@ -42,7 +41,7 @@ export const ProductCard = ({ product, index }) => {
                         width={720}
                         height={1005}
                     />
-                </Link>
+                </a>
                 <div className="list-product-btn">
                     <a
                         href="#quick_view"
@@ -66,9 +65,9 @@ export const ProductCard = ({ product, index }) => {
                 </div>
             </div>
             <div className="card-product-info">
-                <Link href={`/product-detail/${product.id}`} className="title link">
+                <a href={`/product-detail/${product.id}`} className="title link">
                     {product.name}
-                </Link>
+                </a>
             </div>
         </div>
     );

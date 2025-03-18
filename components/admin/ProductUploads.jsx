@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import DropzoneUpload from "./DropzoneUpload";
-import alertify from "alertifyjs"
 import Image from "next/image";
 import { globalConfig } from "@/data/globalConfig";
 import SaveChangesButton from "../common/SaveChangesButton";
@@ -10,7 +9,16 @@ import SaveChangesButton from "../common/SaveChangesButton";
 export default function ProductUploads({ id }) {
     const [files, setFiles] = useState([]);
     const [productImages, setProductImages] = useState([]);
+    const [alertify, setAlertify] = useState(null);
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('alertifyjs').then((mod) => {
+                setAlertify(mod.default);
+            });
+        }
+    }, []);
 
     const fetchProductImages = useCallback(async () => {
         try {
@@ -103,7 +111,7 @@ export default function ProductUploads({ id }) {
                     </div>
 
                     <div className="mb_20">
-                        <SaveChangesButton loading={loading}/>
+                        <SaveChangesButton loading={loading} />
                     </div>
                 </form>
             </div>

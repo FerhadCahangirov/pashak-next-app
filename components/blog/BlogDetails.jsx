@@ -1,5 +1,5 @@
+import { globalConfig } from "@/data/globalConfig";
 import React from "react";
-import Image from "next/image";
 
 export default function BlogDetails({ blog, prev, next }) {
     return (
@@ -26,11 +26,10 @@ export default function BlogDetails({ blog, prev, next }) {
                                         by <span>admin</span> on <span>Oct 02</span>
                                     </div>
                                     <div className="image">
-                                        <Image
+                                        <img
                                             className="lazyload"
-                                            data-src={blog.src}
                                             alt="image"
-                                            src={blog.src}
+                                            src={globalConfig.domain +blog.src}
                                             width={1100}
                                             height={707}
                                         />

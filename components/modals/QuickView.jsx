@@ -1,9 +1,6 @@
 "use client";
 
 import { useContextElement } from "@/context/Context";
-
-import Link from "next/link";
-
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import React, { useState } from "react";
@@ -81,12 +78,12 @@ export default function QuickView() {
                                 <div className="tf-product-info-list">
                                     <div className="tf-product-info-title">
                                         <h5>
-                                            <Link
+                                            <a
                                                 className="link"
                                                 href={`/product-detail/${quickViewItem.id}`}
                                             >
                                                 {quickViewItem.name}
-                                            </Link>
+                                            </a>
                                         </h5>
                                     </div>
                                     <div className="tf-product-info-badges">
@@ -99,13 +96,13 @@ export default function QuickView() {
                                     </div>
 
                                     <div>
-                                        <Link
+                                        <a
                                             href={`/product-detail/${quickViewItem.id}`}
                                             className="tf-btn fw-6 btn-line"
                                         >
                                             View full details
                                             <i className="icon icon-arrow1-top-left" />
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

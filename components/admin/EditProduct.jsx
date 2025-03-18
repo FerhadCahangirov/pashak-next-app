@@ -3,8 +3,6 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import dynamic from 'next/dynamic'
 const TextEditor = dynamic(() => import('./TextEditor'), { ssr: false })
-import alertify from "alertifyjs"
-import { globalConfig } from "@/data/globalConfig";
 import Select from "react-dropdown-select"
 import SaveChangesButton from "../common/SaveChangesButton";
 
@@ -15,6 +13,15 @@ export default function EditProduct({ id }) {
         productName: null,
         compositions: null
     });
+
+    const [alertify, setAlertify] = useState(null);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('alertifyjs').then((mod) => {
+                setAlertify(mod.default);
+            });
+        }
+    }, []);
 
     const [content, setContent] = useState("");
     const [categoryId, setCategoryId] = useState(null);

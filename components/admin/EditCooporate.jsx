@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
 import { globalConfig } from "@/data/globalConfig";
-import alertify from 'alertifyjs';
 import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function EditCooporate({ id }) {
@@ -20,6 +19,15 @@ export default function EditCooporate({ id }) {
     const [formHandled, setFormHandled] = useState(false);
 
     const [loading, setLoading] = useState(false);
+
+    const [alertify, setAlertify] = useState(null);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('alertifyjs').then((mod) => {
+                setAlertify(mod.default);
+            });
+        }
+    }, []);
 
     const validateForm = () => {
         const newErrors = {
@@ -159,7 +167,7 @@ export default function EditCooporate({ id }) {
                     </div>
 
                     <div className="mb_20 mt_20">
-                        <SaveChangesButton loading={loading}/>
+                        <SaveChangesButton loading={loading} />
                     </div>
                 </form>
             </div>

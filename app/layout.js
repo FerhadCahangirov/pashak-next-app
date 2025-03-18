@@ -135,17 +135,15 @@ export default function RootLayout({ children }) {
     }, []);
 
     useLayoutEffect(() => {
+        const preloader = document.getElementById("preloader");
         if (preloader) {
-            preloader.classList.remove("disabled");
-
             const timeout = setTimeout(() => {
                 preloader.classList.add("disabled");
-            }, 1000);
+            }, 500);
 
             return () => clearTimeout(timeout);
         }
-    }, [pathname])
-
+    }, []);
 
     return (
         <html lang="en">

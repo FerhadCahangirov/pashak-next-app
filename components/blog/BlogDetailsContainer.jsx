@@ -3,7 +3,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import BlogDetails from './BlogDetails'
 import RelatedBlogs from './RelatedBlogs'
-import Link from 'next/link';
 
 function BlogDetailsContainer({ id }) {
     const [blog, setBlog] = useState(null);
@@ -44,7 +43,7 @@ function BlogDetailsContainer({ id }) {
                             <div className="heading text-center">Blog Detail</div>
                             <ul className="breadcrumbs d-flex align-items-center justify-content-center">
                                 <li>
-                                    <Link href={`/blog`}>Blogs</Link>
+                                    <a href={`/blog`}>Blogs</a>
                                 </li>
                                 <li>
                                     <i className="icon-arrow-right" />

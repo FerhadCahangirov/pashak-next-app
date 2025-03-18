@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import { Navigation, Pagination } from "swiper/modules";
+import { globalConfig } from "@/data/globalConfig";
 export default function RelatedBlogs({blogs}) {
   return (
     <section className="mb_30">
@@ -32,38 +32,38 @@ export default function RelatedBlogs({blogs}) {
               <SwiperSlide key={index}>
                 <div className="blog-article-item">
                   <div className="article-thumb radius-10">
-                    <Link href={`/blog-detail/${article.id}`}>
-                      <Image
-                        src={article.src}
+                    <a href={`/blog-detail/${article.id}`}>
+                      <img
+                        src={globalConfig.domain + article.src}
                         alt={article.title}
                         width={550}
                         height={354}
                         className="lazyload"
                       />
-                    </Link>
+                    </a>
                     <div className="article-label">
-                      <Link
+                      <a
                         href={`/shop-collection-list`}
                         className="tf-btn style-2 btn-fill radius-3 animate-hover-btn"
                       >
                         Shop collection
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <div className="article-content">
                     <div className="article-title">
-                      <Link href={`/blog-detail/${article.id}`}>
+                      <a href={`/blog-detail/${article.id}`}>
                         {article.title}
-                      </Link>
+                      </a>
                     </div>
                     <div className="article-btn">
-                      <Link
+                      <a
                         href={`/blog-detail/${article.id}`}
                         className="tf-btn btn-line fw-6"
                       >
                         Read more
                         <i className="icon icon-arrow1-top-left" />
-                      </Link>
+                      </a>
                     </div>
                   </div>
                 </div>

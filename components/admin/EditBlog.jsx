@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
-import alertify from 'alertifyjs';
 import { globalConfig } from "@/data/globalConfig";
 import Select from 'react-dropdown-select';
 import DropzoneSingleUpload from './DropzoneSingleUpload';
@@ -24,6 +23,15 @@ function EditBlog({ id }) {
     const [formHandled, setFormHandled] = useState(false);
 
     const [loading, setLoading] = useState(false);
+
+    const [alertify, setAlertify] = useState(null);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('alertifyjs').then((mod) => {
+                setAlertify(mod.default);
+            });
+        }
+    }, []);
 
     const handleSubmit = async (event) => {
         event.preventDefault();

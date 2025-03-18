@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import DropzoneSingleUpload from "./DropzoneSingleUpload";
 import { globalConfig } from "@/data/globalConfig";
-import alertify from 'alertifyjs';
 import SaveChangesButton from "../common/SaveChangesButton";
 
 export default function EditCategory({ id }) {
@@ -19,6 +18,15 @@ export default function EditCategory({ id }) {
 
     const [loading, setLoading] = useState(false);
 
+    const [alertify, setAlertify] = useState(null);
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            import('alertifyjs').then((mod) => {
+                setAlertify(mod.default);
+            });
+        }
+    }, []);
+
     const validateForm = () => {
         const newErrors = {
             name: name.trim() ? null : "Category name is required",
@@ -27,6 +35,7 @@ export default function EditCategory({ id }) {
         setErrors(newErrors);
         return Object.values(newErrors).every(error => error === null);
     };
+
 
     useEffect(() => {
         if (formHandled) {
@@ -131,7 +140,7 @@ export default function EditCategory({ id }) {
                     {errors.name && <p style={{ color: "red", marginTop: "-10px" }}>{errors.name}</p>}
 
                     <div className="mb_20 mt_20">
-                        <SaveChangesButton loading={loading}/>
+                        <SaveChangesButton loading={loading} />
                     </div>
                 </form>
             </div>

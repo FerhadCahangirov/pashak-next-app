@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Pagination from "../common/Pagination";
 import { globalConfig } from "@/data/globalConfig";
 
@@ -45,7 +44,7 @@ export default function ShopCollections() {
                     {categories.map((item, index) => (
                         <div className="collection-item hover-img" key={index}>
                             <div className="collection-inner">
-                                <Link
+                                <a
                                     href={`/categories/${item.id}`}
                                     className="collection-image img-style"
                                 >
@@ -60,15 +59,15 @@ export default function ShopCollections() {
                                             height: "300px"
                                         }}
                                     />
-                                </Link>
+                                </a>
                                 <div className="collection-content">
-                                    <Link
+                                    <a
                                         href={`/categories/${item.id}`}
                                         className="tf-btn collection-title hover-icon"
                                     >
                                         <span>{item.name}</span>
                                         <i className="icon icon-arrow1-top-left" />
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>

@@ -52,14 +52,14 @@ export default function Footer({ bgColor = "background-black" }) {
                             <div className="col-xl-3 col-md-6 col-12">
                                 <div className="footer-infor">
                                     <div className="footer-logo">
-                                        <Link href={`/`}>
+                                        <a href={`/`}>
                                             <Image
                                                 alt="image"
                                                 src="/images/logo/logo-pashak-light.png"
                                                 width={136}
                                                 height={21}
                                             />
-                                        </Link>
+                                        </a>
                                     </div>
                                     <ul>
                                         <li>
@@ -79,10 +79,10 @@ export default function Footer({ bgColor = "background-black" }) {
                                             </p>
                                         </li>
                                     </ul>
-                                    <Link href={`/contact`} className="tf-btn btn-line">
+                                    <a href={`/contact`} className="tf-btn btn-line">
                                         Contact Us
                                         <i className="icon icon-arrow1-top-left" />
-                                    </Link>
+                                    </a>
                                     <ul className="tf-social-icon d-flex gap-10 style-white">
                                         <li>
                                             <a
@@ -137,9 +137,9 @@ export default function Footer({ bgColor = "background-black" }) {
                                 <ul className="footer-menu-list tf-collapse-content">
                                     {footerLinks.map((link, index) => (
                                         <li key={index}>
-                                            <Link href={link.href} className="footer-menu_item">
+                                            <a href={link.href} className="footer-menu_item">
                                                 {link.text}
-                                            </Link>
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>
@@ -154,9 +154,9 @@ export default function Footer({ bgColor = "background-black" }) {
                                 <ul className="footer-menu-list tf-collapse-content">
                                     {aboutLinks.slice(0, 4).map((link, index) => (
                                         <li key={index}>
-                                            <Link href={link.href} className="footer-menu_item">
+                                            <a href={link.href} className="footer-menu_item">
                                                 {link.text}
-                                            </Link>
+                                            </a>
                                         </li>
                                     ))}
                                 </ul>

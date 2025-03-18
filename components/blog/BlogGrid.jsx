@@ -1,8 +1,8 @@
 "use client"
 
+import { globalConfig } from "@/data/globalConfig";
 import React, { useCallback, useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
+
 export default function BlogGrid() {
 
     const [blogs, setBlogs] = useState([]);
@@ -35,37 +35,36 @@ export default function BlogGrid() {
                         <div className="col-xl-4 col-md-6 col-12" key={index}>
                             <div className="blog-article-item">
                                 <div className="article-thumb">
-                                    <Link href={`/blog-detail/${post.id}`}>
-                                        <Image
+                                    <a href={`/blog-detail/${post.id}`}>
+                                        <img
                                             className="lazyload"
-                                            data-src={post.src}
                                             alt={post.title}
-                                            src={post.src}
+                                            src={globalConfig.domain + post.src}
                                             width={550}
                                             height={354}
                                         />
-                                    </Link>
+                                    </a>
                                     <div className="article-label">
-                                        <Link
+                                        <a
                                             href={`/blog-detail/${post.id}`}
                                             className="tf-btn btn-sm radius-3 btn-fill animate-hover-btn"
                                         >
                                             {post.tags[0].name}
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                                 <div className="article-content">
                                     <div className="article-title">
-                                        <Link href={`/blog-detail/${post.id}`}>{post.title}</Link>
+                                        <a href={`/blog-detail/${post.id}`}>{post.title}</a>
                                     </div>
                                     <div className="article-btn">
-                                        <Link
+                                        <a
                                             href={`/blog-detail/${post.id}`}
                                             className="tf-btn btn-line fw-6"
                                         >
                                             Read more
                                             <i className="icon icon-arrow1-top-left" />
-                                        </Link>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
