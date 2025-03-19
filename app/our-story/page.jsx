@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import Footer from "@/components/home/Footer";
 import HeaderV3 from "@/components/headers/HeaderV3";
 import HeaderV2 from "@/components/headers/HeaderV2";
@@ -31,11 +30,9 @@ export default function page() {
                                     </div>
                                 </div>
                                 <div className="tf-timeline-image">
-                                    <Image
-                                        className="lazyload"
-                                        data-=""
+                                    <img
                                         alt="image"
-                                        src="/images/collections/IMG_0875.jpg"
+                                        src="/images/collections/IMG_0875.JPG"
                                         width={800}
                                         height={593}
                                     />
@@ -57,11 +54,9 @@ export default function page() {
                                     </div>
                                 </div>
                                 <div className="tf-timeline-image">
-                                    <Image
-                                        className="lazyload"
-                                        data-=""
+                                    <img
                                         alt="image"
-                                        src="/images/collections/IMG_0929.jpg"
+                                        src="/images/collections/IMG_0929.JPG"
                                         width={800}
                                         height={593}
                                     />

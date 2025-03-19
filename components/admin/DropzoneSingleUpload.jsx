@@ -1,6 +1,5 @@
 import React from 'react'
 import Dropzone, { useDropzone } from 'react-dropzone'
-import Image from "next/image";
 
 
 function DropzoneSingleUpload({ file, setFile, src = null }) {
@@ -69,7 +68,7 @@ function DropzoneSingleUpload({ file, setFile, src = null }) {
                                     position: "relative"
                                 }}
                             >
-                                <Image
+                                <img
                                     src={file.preview}
                                     alt={file.file.name}
                                     style={{ width: "78px", height: "42px", objectFit: "cover" }}
@@ -114,7 +113,7 @@ function DropzoneSingleUpload({ file, setFile, src = null }) {
                                     position: "relative"
                                 }}>
 
-                                <Image
+                                <img
                                     src={src}
                                     alt="category-image"
                                     style={{ width: "78px", height: "42px", objectFit: "cover" }}

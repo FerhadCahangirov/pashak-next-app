@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react";
-import Link from "next/link";
 
 export default function About() {
     return (
@@ -13,9 +12,8 @@ export default function About() {
                             <div className="box-img item-1 hover-img tf-image-wrap">
                                 <div className="img-style">
                                     <img
-                                        className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/IMG_0881.jpg"
+                                        src="/images/collections/IMG_0881.JPG"
                                         width="272"
                                         height="325"
                                     />
@@ -24,20 +22,18 @@ export default function About() {
                             <div className="box-img item-2 hover-img tf-image-wrap">
                                 <div className="img-style">
                                     <img
-                                        className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/IMG_0890.jpg"
+                                        src="/images/collections/IMG_0890.JPG"
                                         width="400"
                                         height="539"
                                     />
                                 </div>
-                            </div>
+                            </div> 
                             <div className="box-img item-3 hover-img tf-image-wrap">
                                 <div className="img-style">
                                     <img
-                                        className="lazyload"
                                         alt="img-slider"
-                                        src="/images/collections/IMG_0900.jpg"
+                                        src="/images/collections/IMG_0900.JPG"
                                         width="217"
                                         height="219"
                                     />
@@ -53,12 +49,12 @@ export default function About() {
                         <p className="desc fade-item fade-item-2">
                             We connect healthcare providers with top-quality medicines, ensuring seamless access to essential treatments for better patient care.
                         </p>
-                        <Link
+                        <a
                             href={`/about-us`}
                             className="tf-btn btn-line letter-spacing-1 fw-6"
                         >
                             READ MORE
-                        </Link>
+                        </a>
                     </div>
                 </div>
             </div>

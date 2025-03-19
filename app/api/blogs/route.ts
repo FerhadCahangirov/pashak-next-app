@@ -24,10 +24,10 @@ export async function POST(req: Request) {
 
         const fileExt = ".bin"; 
         const finalFileName = `${Date.now()}${fileExt}`;
-        const filePath = `/upload/${finalFileName}`;
+        const filePath = `/uploads/${finalFileName}`;
 
         const fileBuffer = Buffer.from(await file.arrayBuffer());
-        const uploadDir = path.join(process.cwd(), "public/upload"); 
+        const uploadDir = path.join(process.cwd(), "public/uploads"); 
         if (!fs.existsSync(uploadDir)) {
             fs.mkdirSync(uploadDir, { recursive: true });
         }

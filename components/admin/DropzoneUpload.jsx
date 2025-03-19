@@ -1,7 +1,5 @@
 import React from 'react'
 import Dropzone, { useDropzone } from 'react-dropzone'
-import Image from "next/image";
-
 
 function DropzoneUpload({files, setFiles}) {
 
@@ -73,7 +71,7 @@ function DropzoneUpload({files, setFiles}) {
                                     position: "relative"
                                 }}
                             >
-                                <Image
+                                <img
                                     src={file.preview} // Use the preview URL for the image source
                                     alt={file.file.name}
                                     style={{ width: "78px", height: "42px", objectFit: "cover" }}

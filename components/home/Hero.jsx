@@ -1,8 +1,6 @@
 "use client";
-import Image from "next/image";
 import { slides } from "@/data/heroslides";
 import { Autoplay, Pagination } from "swiper/modules";
-import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export default function Hero() {
@@ -24,16 +22,14 @@ export default function Hero() {
                 {slides.map((slide, index) => (
                     <SwiperSlide key={index}>
                         <div className="wrap-slider">
-                            <Image
+                            <img
                                 className="lazyload"
-                                data-src={slide.imgSrc}
                                 alt={slide.imgAlt}
                                 loading="lazy"
                                 src={slide.imgSrc}
                                 width={1800}
                                 height={1013}
                             />
-
                             <div
                                 style={{
                                     backgroundColor: "rgba(0, 0, 0, .3)",
@@ -53,13 +49,13 @@ export default function Hero() {
                                     <p className="fade-item fade-item-2 text-white">
                                         {slide.description}
                                     </p>
-                                    <Link
+                                    <a
                                         href={`/products`}
                                         className="fade-item fade-item-3 tf-btn btn-light-icon animate-hover-btn btn-xl radius-3"
                                     >
                                         <span>Shop collection</span>
                                         <i className="icon icon-arrow-right" />
-                                    </Link>
+                                    </a>
                                 </div>
                             </div>
                         </div>

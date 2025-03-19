@@ -5,8 +5,8 @@ import { z } from "zod";
 import fs from "fs";
 
 const uploadSchema = z.object({
-    files:  z.array(z.instanceof(Blob)).min(1, "Images are required")
-}); 
+    files: z.array(z.instanceof(Blob)).min(1, "Images are required")
+});
 
 export async function POST(
     req: Request,
@@ -44,24 +44,28 @@ export async function POST(
             return NextResponse.json({ error: "Product not found" }, { status: 404 });
         }
 
-       // Ensure upload directory exists
-       const publicDir = path.join(process.cwd(), "public", "uploads");
-       if (!fs.existsSync(publicDir)) {
-           fs.mkdirSync(publicDir, { recursive: true });
-       }
+        // Ensure upload directory exists
+        const publicDir = path.join(process.cwd(), "public", "uploads");
+        if (!fs.existsSync(publicDir)) {
+            fs.mkdirSync(publicDir, { recursive: true });
+        }
 
-       // Save files to the public/uploads directory
-       const productImagesData = await Promise.all(
-           files.map(async (file) => {
-               const fileExt = file.type === "image/png" ? ".png" : ".jpg"; // Determine file extension
-               const fileName = `${Date.now()}${fileExt}`;
-               const filePath = path.join(publicDir, fileName);
-               const buffer = Buffer.from(await file.arrayBuffer());
-               fs.writeFileSync(filePath, buffer);
-               return { productId: product.id, src: `/uploads/${fileName}` };
-           })
-       );
-       
+        let productImagesData: {
+            productId: number,
+            src: string
+        }[] = [];
+
+        // Save files to the public/uploads directory
+        for (let index = 0; index < files.length; index++) {
+            const file = files[index];
+            const fileExt = file.type === "image/png" ? ".png" : ".jpg";
+            const fileName = `${Date.now()}${fileExt}`;
+            const filePath = path.join(publicDir, fileName);
+            const buffer = Buffer.from(await file.arrayBuffer());
+            fs.writeFileSync(filePath, buffer);
+            productImagesData.push({ productId: product.id, src: `/uploads/${fileName}` });
+        }
+
         // Save product images in the database
         const productImages = await prisma.productImage.createMany({
             data: productImagesData,
